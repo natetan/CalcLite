@@ -33,4 +33,13 @@ class CalcLiteUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testThatInitialTextLabelIsLoaded() {
+        let app = XCUIApplication()
+        app.otherElements.containing(.staticText, identifier: "Loaded").element
+        
+        let loadedStaticText = app.staticTexts["Loaded"]
+        NSLog("loadedStaticText.title = \(loadedStaticText)")
+        XCTAssertEqual(loadedStaticText.label, "Loaded")
+    }
+    
 }
